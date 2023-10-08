@@ -50,3 +50,19 @@ data <- data %>%
                      "Chances Are Slight", 
                      "Almost No Chance"))
 View(data)
+
+### Gráfico
+
+p <- data %>%
+  mutate(text = fct_reorder(text, value)) %>% # Reorder data
+  ggplot(aes(x = text, y = value, fill = text, color = text)) +
+    geom_violin(width = 2.1, size = 0.2) +
+    scale_fill_viridis(discrete = TRUE) +
+    scale_color_viridis(discrete = TRUE) +
+    theme_ipsum() +
+    theme(legend.position = "none") +
+    coord_flip() + # This switch X and Y axis and allows to get the horizontal version
+    xlab("") +
+    ylab("Assigned Probability (%)")
+
+p
