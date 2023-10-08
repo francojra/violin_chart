@@ -29,3 +29,24 @@ library(tidyr)
 library(forcats)
 library(hrbrthemes)
 library(viridis)
+
+### Carregar dados do GitHub
+
+data <- read.table("https://raw.githubusercontent.com/zonination/perceptions/master/probly.csv", 
+                   header = TRUE, sep = ",")
+View(data)
+
+### Os dados estão em formato amplo, precisamos torná-los 'tidy' ou 'longos'
+
+data <- data %>% 
+  gather(key = "text", value = "value") %>%
+  mutate(text = gsub("\\.", " ",text)) %>%
+  mutate(value = round(as.numeric(value),0)) %>%
+  filter(text %in% c("Almost Certainly",
+                     "Very Good Chance",
+                     "We Believe","Likely",
+                     "About Even", 
+                     "Little Chance", 
+                     "Chances Are Slight", 
+                     "Almost No Chance"))
+View(data)
