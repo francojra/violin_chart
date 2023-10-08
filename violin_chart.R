@@ -115,3 +115,16 @@ data %>%
           plot.title = element_text(size = 11)) +
     ggtitle("A Violin wrapping a boxplot") +
     xlab("")
+
+# Gráfico de violino agrupado --------------------------------------------------------------------------------------------------------------
+
+### Essa é uma extensão do gráfico clássico de violino. Aqui os dados são organizados
+### em grupos e subgrupos, permitindo construir um gráfico agrupado. 
+
+### Um gráfico de violino agrupado exibe a distribuição de uma variável numérica
+### para grupos e subgrupos. Aqui, os grupos são dias da semana e os subgrupos são
+### machos e fêmeas. O ggplot2 permite essa construção graças ao argumento position="dodge"
+### da função geom_violin(). Os grupos são promovidos pelo eixo x e os subgrupos
+### pelo argumento fill.
+
+
