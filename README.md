@@ -17,3 +17,7 @@
 - Criar um conjunto de dados;
 - Tamanho da amostra;
 - Gráfico.
+4. Gráfico de violino agrupado
+- Pacotes;
+- Carregar conjunto de dados;
+- Gráfico.
