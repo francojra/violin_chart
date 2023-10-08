@@ -66,3 +66,15 @@ p <- data %>%
     ylab("Assigned Probability (%)")
 
 p
+
+# Gráfico violino com box-plot e tamanho de amostra ----------------------------------------------------------------------------------------
+
+### Nós podemos adicionar um box-plot ao gráfico de violino para ver ambos distribuição de 
+### dados e estatísticas de resumo. Além disso, podemos adicionar o tamanho da amostra de cada
+### grupo ao eixo x. Vamos fazer isso com R e ggplot2.
+
+### É possível usar geom_boxplot() com um pequeno width para adicionar um boxplot ao gráfico
+### que resume as estatísticas.
+
+### Além disso, note um pequeno truque que permite promover tamanho de amostra de cada grupo
+### ao eixo x: uma nova coluna chamada myaxis é criada e então usada para o eixo x.
