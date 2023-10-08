@@ -78,3 +78,25 @@ p
 
 ### Além disso, note um pequeno truque que permite promover tamanho de amostra de cada grupo
 ### ao eixo x: uma nova coluna chamada myaxis é criada e então usada para o eixo x.
+
+### Pacotes
+
+library(ggplot2)
+library(dplyr)
+library(hrbrthemes)
+library(viridis)
+
+### Criar um conjunto de dados
+
+data <- data.frame(
+  name = c(rep("A",500), rep("B",500), rep("B",500), rep("C",20), rep('D', 100)),
+  value = c(rnorm(500, 10, 5), rnorm(500, 13, 1), 
+           rnorm(500, 18, 1), rnorm(20, 25, 4), 
+           rnorm(100, 12, 1)))
+View(data)
+
+### Tamanho da amostra
+
+sample_size = data %>% 
+  group_by(name) %>% 
+  summarize(num = n())
