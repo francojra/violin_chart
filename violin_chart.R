@@ -100,3 +100,18 @@ View(data)
 sample_size = data %>% 
   group_by(name) %>% 
   summarize(num = n())
+
+### Gráfico
+
+data %>%
+  left_join(sample_size) %>%
+  mutate(myaxis = paste0(name, "\n", "n=", num)) %>%
+  ggplot(aes(x = myaxis, y = value, fill = name)) +
+    geom_violin(width = 1.4) +
+    geom_boxplot(width = 0.1, color = "grey", alpha = 0.2) +
+    scale_fill_viridis(discrete = TRUE) +
+    theme_ipsum() +
+    theme(legend.position = "none",
+          plot.title = element_text(size = 11)) +
+    ggtitle("A Violin wrapping a boxplot") +
+    xlab("")
